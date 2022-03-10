@@ -1,5 +1,5 @@
 {% extends 'bootstrap/base.html' %}
-
+{% import "bootstrap/wtf.html" as wtf %}
 {% block title%}Dawid Pietras{% endblock %}
 
 {% block head %}
@@ -36,13 +36,10 @@ type="image/x-icon">
 {% block content %}
 <div class="container">
     <div class="page-header">
-        <h1>Witaj {{name}}!</h1>
+        <h1>Witaj, {% if name%}{{name}}{%else%}Nieznajomy{%endif%}!</h1>
+        <h2>{%if mess%} Twoja wiadomość to: {{mess}}. {%else%} Wpisz wiadomość.{%endif%}<h2>
     </div>
-</div>
-
-<div class="container">
-    <p>Lokalna data i czas: {{ moment(current_time).format('LLL') }}</p>
-    <p>To było {{ moment(current_time).fromNow(refresh=True) }}</p>
+    {{wtf.quick_form(form)}}
 </div>
 {% endblock %}
 
