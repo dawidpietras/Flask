@@ -1,4 +1,14 @@
+# virtual environment
 venv/
+
+#compiled
 *.pyc
+
+#pycharm
 .idea
+
+#package
 __pycache__/
+
+#SQLite DB
+*.sqlite
